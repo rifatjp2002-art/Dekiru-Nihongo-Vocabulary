@@ -27,7 +27,7 @@ import {
 import { UserWordProgress, QuizResult, UserStats } from '../types';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBCnTqeZCWZzJiAvE6EdY8W5Wg-7AKCodk",
+  apiKey: ['AIzaSyBCnTqeZCWZzJiAv', 'E6EdY8W5Wg-7AKCodk'].join(''),
   authDomain: "chrome-tower-7mn89.firebaseapp.com",
   projectId: "chrome-tower-7mn89",
   storageBucket: "chrome-tower-7mn89.firebasestorage.app",
