@@ -77,10 +77,10 @@
 
 ```bash
 # ১. রিপোজিটরি ক্লোন করুন
-git clone https://github.com/your-username/dekiru-nihongo-vocab-master.git
+git clone https://github.com/rifatjp2002-art/Dekiru-Nihongo-Vocabulary.git
 
 # ২. প্রজেক্ট ফোল্ডারে প্রবেশ করুন
-cd dekiru-nihongo-vocab-master
+cd Dekiru-Nihongo-Vocabulary
 
 # ৩. প্যাকেজসমূহ ইনস্টল করুন
 npm install
@@ -109,7 +109,8 @@ npm run preview
 
 ## 👨‍💻 Developer & Contact (ডেভেলপার পরিচিতি)
 
-- **Developer:** Rifat
+- **Developer:** [Rifat (rifatjp2002-art)](https://github.com/rifatjp2002-art)
+- **Repository:** [Dekiru-Nihongo-Vocabulary](https://github.com/rifatjp2002-art/Dekiru-Nihongo-Vocabulary)
 - **Email:** [rifatjp2002@gmail.com](mailto:rifatjp2002@gmail.com)
 - **Project Purpose:** জাপানি ভাষা শিক্ষার্থী ও জাপানে যেতে ইচ্ছুক সকলের জন্য একটি ফ্রি, উন্মুক্ত এবং সহজ প্ল্যাটফর্ম তৈরি করা।
 
