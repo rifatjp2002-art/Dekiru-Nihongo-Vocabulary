@@ -29,12 +29,13 @@ import {
 import { UserWordProgress, QuizResult, UserStats } from '../types';
 
 const firebaseConfig = {
-  apiKey: ['AIzaSyBCnTqeZCWZzJiAv', 'E6EdY8W5Wg-7AKCodk'].join(''),
-  authDomain: "chrome-tower-7mn89.firebaseapp.com",
-  projectId: "chrome-tower-7mn89",
-  storageBucket: "chrome-tower-7mn89.firebasestorage.app",
-  messagingSenderId: "734894404253",
-  appId: "1:734894404253:web:2aa94a9493e3066fd09a74"
+  apiKey: "AIzaSyA2YmsvEEJf1SkiSHStDNFB8OKRJV7iTuY",
+  authDomain: "dekiru-vocab.firebaseapp.com",
+  projectId: "dekiru-vocab",
+  storageBucket: "dekiru-vocab.firebasestorage.app",
+  messagingSenderId: "596501112094",
+  appId: "1:596501112094:web:c2722e02337b689687550f",
+  measurementId: "G-Z4WDJ6K5GT"
 };
 
 // Initialize Firebase app
@@ -43,8 +44,8 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Auth
 export const auth = getAuth(app);
 
-// Initialize Cloud Firestore using the specific database ID from configuration
-export const db = getFirestore(app, "ai-studio-dekirunihongovoc-5ffe69c6-4e62-4ce0-a5ad-acdb2193659e");
+// Initialize Cloud Firestore database
+export const db = getFirestore(app);
 
 // Google Auth Provider
 const googleProvider = new GoogleAuthProvider();
