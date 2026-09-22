@@ -2,6 +2,8 @@ import { initializeApp } from 'firebase/app';
 import { 
   getAuth, 
   signInWithPopup, 
+  signInWithRedirect,
+  getRedirectResult,
   GoogleAuthProvider, 
   signOut, 
   onAuthStateChanged,
@@ -48,11 +50,32 @@ export const db = getFirestore(app, "ai-studio-dekirunihongovoc-5ffe69c6-4e62-4c
 const googleProvider = new GoogleAuthProvider();
 
 /**
- * Signs in the user using Firebase Auth Google popup
+ * Signs in the user using Firebase Auth Google popup with redirect fallback
  */
-export async function signInWithGoogle(): Promise<User> {
-  const result = await signInWithPopup(auth, googleProvider);
-  return result.user;
+export async function signInWithGoogle(): Promise<User | null> {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    return result.user;
+  } catch (err: any) {
+    if (err?.code === 'auth/popup-blocked') {
+      await signInWithRedirect(auth, googleProvider);
+      return null;
+    }
+    throw err;
+  }
+}
+
+/**
+ * Checks for pending redirect sign-in results on page load
+ */
+export async function checkRedirectResult(): Promise<User | null> {
+  try {
+    const result = await getRedirectResult(auth);
+    return result?.user || null;
+  } catch (err) {
+    console.error('Redirect sign-in check failed:', err);
+    return null;
+  }
 }
 
 /**

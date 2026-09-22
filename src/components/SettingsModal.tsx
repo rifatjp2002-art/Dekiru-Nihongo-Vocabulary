@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { User } from 'firebase/auth';
 import { ResetConfirmModal } from './ResetConfirmModal';
+import { sendNotification, requestNotificationPermission } from '../utils/notifications';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -80,32 +81,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
   if (!isOpen) return null;
 
-  const triggerNotification = async (title: string, body: string) => {
-    const options = {
-      body,
-      icon: 'https://cdn-icons-png.flaticon.com/512/188/188333.png',
-      badge: 'https://cdn-icons-png.flaticon.com/512/188/188333.png',
-      vibrate: [100, 50, 100],
-      data: {
-        url: '/'
-      }
-    };
-
-    if ('serviceWorker' in navigator) {
-      try {
-        const registration = await navigator.serviceWorker.ready;
-        await registration.showNotification(title, options);
-        return;
-      } catch (e) {
-        console.warn('Service worker not ready or blocked, falling back to simple Notification', e);
-      }
-    }
-
-    if ('Notification' in window && Notification.permission === 'granted') {
-      new Notification(title, options);
-    }
-  };
-
   const handleToggleNotifications = async () => {
     if (notificationsEnabled) {
       localStorage.setItem('notificationsEnabled', 'false');
@@ -119,18 +94,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     }
 
     try {
-      const permission = await Notification.requestPermission();
-      if (permission === 'granted') {
+      const granted = await requestNotificationPermission();
+      if (granted) {
         localStorage.setItem('notificationsEnabled', 'true');
         setNotificationsEnabled(true);
         
-        await triggerNotification('Dekiru Nihongo', 'অভিনন্দন! দৈনিক জাপানি শব্দ অনুশীলনের রিমাইন্ডার সফলভাবে চালু হয়েছে। 🌸');
+        await sendNotification('Dekiru Nihongo 🌸', 'অভিনন্দন! দৈনিক জাপানি শব্দ অনুশীলনের রিমাইন্ডার সফলভাবে চালু হয়েছে।');
       } else {
         alert('নোটিফিকেশন অনুমতি প্রত্যাখ্যান করা হয়েছে। রিমাইন্ডার সক্রিয় করতে দয়া করে ব্রাউজার সেটিংস থেকে অনুমতি (Permission) দিন।');
       }
     } catch (err) {
       console.error('Error requesting notification permission:', err);
-      alert('আইফ্রেম সীমাবদ্ধতা: আপনি যদি গুগল এআই স্টুডিওর ভেতরে থাকেন, তবে ব্রাউজার সিকিউরিটির কারণে নোটিফিকেশন চালু করা যাবে না। দয়া করে অ্যাপটি "New Tab" এ ওপেন করে চেষ্টা করুন।');
+      alert('আইফ্রেম সীমাবদ্ধতা: দয়া করে আপনার লাইভ ওয়েবসাইটটি (GitHub Pages) সরাসরি ব্রাউজারে ওপেন করে নোটিফিকেশন অনুমতি দিন।');
     }
   };
 
@@ -141,11 +116,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     }
 
     if (Notification.permission !== 'granted') {
-      handleToggleNotifications();
+      await handleToggleNotifications();
       return;
     }
     
-    await triggerNotification('Dekiru Nihongo', 'আজকের জাপানি শব্দগুলো রিভিশন দেওয়ার সময় হয়েছে! 🌸');
+    await sendNotification('Dekiru Nihongo (টেস্ট রিমাইন্ডার) 🌸', 'আজকের জাপানি শব্দগুলো রিভিশন দেওয়ার সময় হয়েছে!');
     setTestSent(true);
     setTimeout(() => setTestSent(false), 3000);
   };

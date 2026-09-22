@@ -12,8 +12,10 @@ import { FlashcardView } from './components/FlashcardView';
 import { ReviewView } from './components/ReviewView';
 import { QuizView } from './components/QuizView';
 import { SettingsModal } from './components/SettingsModal';
-import { auth, signInWithGoogle, signOutUser, syncAll } from './db/firebase';
+import { auth, signInWithGoogle, signOutUser, syncAll, checkRedirectResult } from './db/firebase';
+import { startReminderScheduler } from './utils/notifications';
 import { onAuthStateChanged, User } from 'firebase/auth';
+import { AlertCircle, X, ExternalLink } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'lessons' | 'flashcards' | 'review' | 'quiz'>('dashboard');
@@ -21,6 +23,7 @@ export default function App() {
   const [lastSelectedLesson, setLastSelectedLesson] = useState<number>(1);
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   // Firebase auth & sync states
   const [user, setUser] = useState<User | null>(null);
@@ -45,11 +48,19 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [activeTab]);
 
+  // Global Daily Notification Scheduler
+  useEffect(() => {
+    const cleanup = startReminderScheduler();
+    return () => cleanup();
+  }, []);
+
   // Firebase auth state listener
   useEffect(() => {
+    checkRedirectResult().catch((err) => console.error('Redirect sign-in error:', err));
     const unsubscribe = onAuthStateChanged(auth, async (u) => {
       setUser(u);
       if (u) {
+        setAuthError(null);
         // Trigger automatic sync on login / application reload
         setSyncStatus('syncing');
         try {
@@ -80,10 +91,18 @@ export default function App() {
   const handleLogin = async () => {
     try {
       setSyncStatus('syncing');
+      setAuthError(null);
       await signInWithGoogle();
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error logging in:', err);
       setSyncStatus('error');
+      if (err?.code === 'auth/unauthorized-domain') {
+        setAuthError('unauthorized-domain');
+      } else if (err?.code === 'auth/popup-blocked') {
+        setAuthError('popup-blocked');
+      } else if (err?.code !== 'auth/popup-closed-by-user') {
+        setAuthError(err?.message || 'লগইন ব্যর্থ হয়েছে');
+      }
     }
   };
 
@@ -211,6 +230,49 @@ export default function App() {
         onSync={handleManualSync}
         isOnline={isOnline}
       />
+
+      {/* Auth Error Notification Modal */}
+      {authError && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-slate-900 border border-pink-500/30 rounded-3xl p-6 max-w-md w-full shadow-2xl relative text-left">
+            <button
+              onClick={() => setAuthError(null)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="flex items-center gap-3 text-rose-400 mb-3">
+              <AlertCircle className="w-6 h-6 shrink-0" />
+              <h3 className="font-bold text-lg text-white">গুগল লগইন নোটিশ</h3>
+            </div>
+            {authError === 'unauthorized-domain' ? (
+              <div className="space-y-3 text-sm text-slate-300">
+                <p>
+                  আপনার সাইটটি GitHub Pages ডোমেনে হোস্ট করায় ফায়ারবেসে ডোমেনটি অনুমতি দিতে হবে:
+                </p>
+                <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-pink-300 break-all select-all">
+                  rifatjp2002-art.github.io
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Firebase Console &gt; Authentication &gt; Settings &gt; Authorized domains-এ গিয়ে উপরের ডোমেনটি যোগ (Add domain) করলেই সরাসরি গুগল লগইন সচল হয়ে যাবে।
+                </p>
+              </div>
+            ) : authError === 'popup-blocked' ? (
+              <p className="text-sm text-slate-300">
+                আপনার ব্রাউজারে পপআপ ব্লক করা আছে। অনুগ্রহ করে ব্রাউজার সেটিংসে গিয়ে পপআপ উইন্ডো এলাউ (Allow) করুন।
+              </p>
+            ) : (
+              <p className="text-sm text-slate-300">{authError}</p>
+            )}
+            <button
+              onClick={() => setAuthError(null)}
+              className="mt-5 w-full py-2.5 rounded-xl bg-pink-600 hover:bg-pink-500 text-white font-semibold text-sm transition-colors cursor-pointer"
+            >
+              বুঝেছি
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
