@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { User } from 'firebase/auth';
 import { useBookStore } from '../store/bookStore';
+import { PWAInstallButton } from './PWAInstallButton';
 
 interface NavbarProps {
   activeTab: 'dashboard' | 'lessons' | 'flashcards' | 'review' | 'quiz';
@@ -63,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <h1 className="text-sm sm:text-base font-bold text-white tracking-wide flex items-center gap-1.5">
-                Dekiru Nihongo
+                Dekiru A1-B1
               </h1>
               <select
                 value={currentBook}
@@ -100,6 +101,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Status, Sync & Auth badges */}
           <div className="flex items-center gap-2">
+            {/* PWA Install Button */}
+            <PWAInstallButton />
+
             {/* Online/Offline status */}
             <div className={`hidden lg:flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold border ${
               isOnline 

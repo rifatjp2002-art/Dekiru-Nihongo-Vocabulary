@@ -89,7 +89,7 @@ export function checkAndTriggerReminder(): void {
     if (!localStorage.getItem(triggerKey)) {
       localStorage.setItem(triggerKey, 'true');
       sendNotification(
-        'Dekiru Nihongo (できる日本語) 🌸',
+        'Dekiru A1-B1 (できる日本語) 🌸',
         'আজকের জাপানি শব্দগুলো রিভিশন দেওয়ার সময় হয়েছে! আপনার প্রতিদিনের প্র্যাকটিস চালিয়ে যান।'
       );
     }

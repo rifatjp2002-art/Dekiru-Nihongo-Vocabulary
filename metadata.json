@@ -1,6 +1,6 @@
 {
-  "name": "Dekiru Nihongo Vocabulary Master",
-  "description": "Master all vocabulary from Dekiru Nihongo Shokyu (Book 1) and Shokyuchu (Book 2) with offline-first flashcards, interactive review, quizzes, secure Firebase Cloud sync, and high-performance Bengali translations.",
+  "name": "Dekiru A1-B1",
+  "description": "Master all Japanese vocabulary from Dekiru Nihongo Shokyu (A1) and Shokyuchu (A2-B1) with offline-first flashcards, interactive review, quizzes, secure Firebase Cloud sync, and high-performance Bengali translations.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

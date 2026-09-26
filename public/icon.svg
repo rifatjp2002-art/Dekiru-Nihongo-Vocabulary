@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer glowing circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#grad)" />
+  
+  <!-- Inner circular border -->
+  <circle cx="256" cy="256" r="215" fill="none" stroke="#ffffff" stroke-width="8" stroke-opacity="0.3" />
+  
+  <!-- Stylized Sakura Blossom (Cherry Blossom) petals in background -->
+  <path d="M256 150 C240 210 180 210 180 180 C180 150 220 120 256 150 Z" fill="#ffffff" fill-opacity="0.15" />
+  <path d="M256 150 C272 210 332 210 332 180 C332 150 292 120 256 150 Z" fill="#ffffff" fill-opacity="0.15" />
+  
+  <!-- "できる" Calligraphy Text in Japanese -->
+  <text x="256" y="265" font-family="'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif" font-weight="900" font-size="110" fill="#ffffff" text-anchor="middle" filter="url(#glow)">できる</text>
+  
+  <!-- Bengali Subtitle "পারবই!" (We can do it!) -->
+  <text x="256" y="335" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="34" fill="#ffe4e6" text-anchor="middle" letter-spacing="1">পারবই!</text>
+  
+  <!-- "A1-B1" Modern Badge -->
+  <g transform="translate(290, 355)">
+    <rect x="0" y="0" width="140" height="55" rx="20" fill="#0f172a" stroke="#ffffff" stroke-width="3" />
+    <text x="70" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="26" fill="#f43f5e" text-anchor="middle">A1-B1</text>
+  </g>
+</svg>

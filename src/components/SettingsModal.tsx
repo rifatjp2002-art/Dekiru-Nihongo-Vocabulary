@@ -99,7 +99,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         localStorage.setItem('notificationsEnabled', 'true');
         setNotificationsEnabled(true);
         
-        await sendNotification('Dekiru Nihongo 🌸', 'অভিনন্দন! দৈনিক জাপানি শব্দ অনুশীলনের রিমাইন্ডার সফলভাবে চালু হয়েছে।');
+        await sendNotification('Dekiru A1-B1 🌸', 'অভিনন্দন! দৈনিক জাপানি শব্দ অনুশীলনের রিমাইন্ডার সফলভাবে চালু হয়েছে।');
       } else {
         alert('নোটিফিকেশন অনুমতি প্রত্যাখ্যান করা হয়েছে। রিমাইন্ডার সক্রিয় করতে দয়া করে ব্রাউজার সেটিংস থেকে অনুমতি (Permission) দিন।');
       }
@@ -120,7 +120,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
       return;
     }
     
-    await sendNotification('Dekiru Nihongo (টেস্ট রিমাইন্ডার) 🌸', 'আজকের জাপানি শব্দগুলো রিভিশন দেওয়ার সময় হয়েছে!');
+    await sendNotification('Dekiru A1-B1 (টেস্ট রিমাইন্ডার) 🌸', 'আজকের জাপানি শব্দগুলো রিভিশন দেওয়ার সময় হয়েছে!');
     setTestSent(true);
     setTimeout(() => setTestSent(false), 3000);
   };

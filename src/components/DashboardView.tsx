@@ -132,7 +132,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span>{currentBook === 'book2' ? 'できる日本語 初中級 • Complete 15 Lessons' : 'できる日本語 初級 • Complete 15 Lessons'}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
-            {currentBook === 'book2' ? 'Dekiru Nihongo Shokyuchu (প্রাক-মধ্যম) শব্দমালা ✨' : 'Dekiru Nihongo Shokyu (প্রাথমিক) শব্দমালা ✨'}
+            {currentBook === 'book2' ? 'Dekiru A1-B1 (প্রাক-মধ্যম) শব্দমালা ✨' : 'Dekiru A1-B1 (প্রাথমিক) শব্দমালা ✨'}
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
             {currentBook === 'book2' 
