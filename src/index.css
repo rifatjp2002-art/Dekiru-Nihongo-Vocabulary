@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* Force dark canvas to eliminate white rubber-band overscroll in mobile/tablet browsers */
+html,
+body,
+#root {
+  background-color: #020617 !important;
+  color: #f8fafc;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+  color-scheme: dark;
+}
+
+html {
+  background: #020617 !important;
+}
+
+body {
+  background: #020617 !important;
+  overflow-x: hidden;
+}
+
 /* 3D Flip Card Utilities */
 .perspective-1000 {
   perspective: 1000px;

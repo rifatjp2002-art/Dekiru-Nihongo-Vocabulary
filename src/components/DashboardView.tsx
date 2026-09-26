@@ -139,24 +139,24 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               ? 'দ্বিতীয় বই বা প্রাক-মধ্যম লেভেলের ১৫টি লেসনের সমস্ত শব্দ, অর্থ, উচ্চারণ, রিভিও এবং কুইজের মাধ্যমে আপনার দক্ষতা বৃদ্ধি করুন।'
               : 'প্রথম বই বা প্রাথমিক লেভেলের ১৫টি লেসনের সমস্ত শব্দ, অর্থ, উচ্চারণ, রিভিও এবং কুইজের মাধ্যমে আপনার দক্ষতা যাচাই করুন।'}
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3">
             <button
               onClick={() => onNavigateTab('flashcards')}
-              className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-pink-600/30 hover:opacity-95 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-pink-600/30 hover:opacity-95 transition-all cursor-pointer w-full sm:w-auto"
             >
               <Play className="w-4 h-4 fill-white" />
               <span>শব্দ শেখা শুরু করুন</span>
             </button>
             <button
               onClick={() => onNavigateTab('quiz')}
-              className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-800 hover:bg-slate-750 text-pink-300 font-semibold text-sm border border-pink-500/20 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-2xl bg-slate-800 hover:bg-slate-750 text-pink-300 font-semibold text-sm border border-pink-500/20 transition-all cursor-pointer w-full sm:w-auto"
             >
               <Award className="w-4 h-4" />
               <span>কুইজে অংশ নিন</span>
             </button>
             <button
               onClick={onOpenSettings}
-              className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-850 text-slate-300 hover:text-white font-semibold text-sm border border-slate-800 hover:border-pink-500/10 transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-850 text-slate-300 hover:text-white font-semibold text-sm border border-slate-800 hover:border-pink-500/10 transition-all cursor-pointer w-full sm:w-auto"
             >
               <Settings className="w-4 h-4 text-pink-400" />
               <span>সেটিংস ও ব্যাকআপ</span>

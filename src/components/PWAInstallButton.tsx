@@ -15,12 +15,13 @@ export const PWAInstallButton: React.FC = () => {
     return (
       <button
         onClick={install}
-        className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-pink-500/20 hover:shadow-pink-500/30 transition-all cursor-pointer active:scale-95 animate-pulse"
+        className="flex items-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 px-2 sm:px-3.5 py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-md shadow-pink-500/20 hover:shadow-pink-500/30 transition-all cursor-pointer active:scale-95 animate-pulse shrink-0"
       >
-        <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         </svg>
-        <span>সেভ করুন (Install App)</span>
+        <span className="hidden sm:inline">সেভ করুন (Install App)</span>
+        <span className="sm:hidden">ইনস্টল</span>
       </button>
     );
   }
@@ -31,12 +32,13 @@ export const PWAInstallButton: React.FC = () => {
       <>
         <button
           onClick={() => setShowIOSGuide(true)}
-          className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-pink-500/20 hover:shadow-pink-500/30 transition-all cursor-pointer active:scale-95"
+          className="flex items-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 px-2 sm:px-3.5 py-1.5 text-[11px] sm:text-xs font-semibold text-white shadow-md shadow-pink-500/20 hover:shadow-pink-500/30 transition-all cursor-pointer active:scale-95 shrink-0"
         >
-          <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
           </svg>
-          <span>মোবাইলে সেভ করুন (iOS)</span>
+          <span className="hidden sm:inline">মোবাইলে সেভ করুন (iOS)</span>
+          <span className="sm:hidden">iOS সেভ</span>
         </button>
 
         {showIOSGuide && (
