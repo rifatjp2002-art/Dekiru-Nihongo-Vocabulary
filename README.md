@@ -71,9 +71,9 @@
 
 ## 📸 Screenshots (অ্যাপের কিছু ঝলক)
 
-| **প্রিমিয়াম ড্যাশবোর্ড ও প্রোগ্রেস** | **অফলাইন-ফার্স্ট ফ্ল্যাশকার্ড** | **ইনস্ট্যান্ট কুইজ টেস্ট** |
-|:---:|:---:|:---:|
-| <img src="public/icon.svg" width="220" style="border-radius:18px;" /> | <img src="public/icon.svg" width="220" style="border-radius:18px;" /> | <img src="public/icon.svg" width="220" style="border-radius:18px;" /> |
+| **ড্যাশবোর্ড ও অগ্রগতি** | **ফ্ল্যাশকার্ড (শব্দ)** | **ফ্ল্যাশকার্ড (অর্থ)** | **স্মার্ট কুইজ টেস্ট** |
+|:---:|:---:|:---:|:---:|
+| <img src="https://i.postimg.cc/zfJJ6KpC/Dashboard.jpg" width="180" style="border-radius:18px; border: 1.5px solid rgba(244, 63, 94, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.4);" alt="Dashboard" /> | <img src="https://i.postimg.cc/CKmFg56b/Flashcard.jpg" width="180" style="border-radius:18px; border: 1.5px solid rgba(244, 63, 94, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.4);" alt="Flashcard Front" /> | <img src="https://i.postimg.cc/hGSS6TMp/Flashcard2.jpg" width="180" style="border-radius:18px; border: 1.5px solid rgba(244, 63, 94, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.4);" alt="Flashcard Back" /> | <img src="https://i.postimg.cc/XvVVmdx2/Quiz.jpg" width="180" style="border-radius:18px; border: 1.5px solid rgba(244, 63, 94, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.4);" alt="Quiz" /> |
 
 ---
 
