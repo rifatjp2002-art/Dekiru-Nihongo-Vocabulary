@@ -12,6 +12,16 @@
 </p>
 
 <p align="center">
+  <a href="https://rifatjp2002-art.github.io/Dekiru-Nihongo-Vocabulary/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_LIVE_APP_-_সরাসরি_অ্যাপ_ওপেন_করুন-ff1493?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live App" />
+  </a>
+</p>
+
+<div align="center">
+  <h3>⚡ লাইভ অ্যাপ লিংক: <a href="https://rifatjp2002-art.github.io/Dekiru-Nihongo-Vocabulary/">https://rifatjp2002-art.github.io/Dekiru-Nihongo-Vocabulary/</a></h3>
+</div>
+
+<p align="center">
   <a href="https://github.com/rifatjp2002-art/Dekiru-Nihongo-Vocabulary"><img src="https://img.shields.io/badge/GitHub-Repository-pink?style=for-the-badge&logo=github&logoColor=white" /></a>
   <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-19.0-61dafb?style=for-the-badge&logo=react&logoColor=black" /></a>
   <a href="https://typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Ready-3178c6?style=for-the-badge&logo=typescript&logoColor=white" /></a>
