@@ -1,7 +1,7 @@
 # 🌸 Dekiru A1-B1 (できる日本語 単語マスター)
 
 <p align="center">
-  <img src="./icon.svg" alt="Dekiru A1-B1 Logo" width="160" height="160" style="border-radius: 32px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);" />
+  <img src="public/icon.svg" alt="Dekiru A1-B1 Logo" width="160" height="160" style="border-radius: 32px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);" />
 </p>
 
 <h1 align="center">Dekiru A1-B1</h1>
@@ -73,7 +73,7 @@
 
 | **প্রিমিয়াম ড্যাশবোর্ড ও প্রোগ্রেস** | **অফলাইন-ফার্স্ট ফ্ল্যাশকার্ড** | **ইনস্ট্যান্ট কুইজ টেস্ট** |
 |:---:|:---:|:---:|
-| <img src="./icon.svg" width="220" style="border-radius:18px;" /> | <img src="./icon.svg" width="220" style="border-radius:18px;" /> | <img src="./icon.svg" width="220" style="border-radius:18px;" /> |
+| <img src="public/icon.svg" width="220" style="border-radius:18px;" /> | <img src="public/icon.svg" width="220" style="border-radius:18px;" /> | <img src="public/icon.svg" width="220" style="border-radius:18px;" /> |
 
 ---
 
